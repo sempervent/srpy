@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "srpy"
+version = "0.1.0"
+description = "ServiceRepoPy or srpy is a service repo for generating useful things like generating python sphinx documentation and serving it, and being able to browse in said documentation in a TUI."
+authors = ["sempervent <jngrant9+git@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fiona = "^1.9.6"
+
+[tool.poetry.extras]
+docker = ["docker"]
+geospatial = ["geopandas", "shapely"]
+cli = ["click"]
+tui = ["textual"]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.2"
+ruff = "^0.5.2"
+flake8 = "^7.1.0"
+tox = "^4.16.0"
+
+pytest-cov = "^5.0.0"
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+develop-docs = "srpy.documentation:develop"
+serve-docs = "srpy.documentation:serve"
+
+[tool.ruff]
+line-length = 100
